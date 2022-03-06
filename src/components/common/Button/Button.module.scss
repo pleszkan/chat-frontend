@@ -1,0 +1,31 @@
+@use '/src/palette';
+@use '/src/index';
+
+:local .button {
+  width: auto;
+  height: 3em;
+  background: none;
+  cursor: pointer;
+  border-radius: 1.5em;
+}
+
+:local .primary {
+  background: palette.$primary-color;
+  border: 1px solid palette.$primary-color;
+  color: #ffffff;
+  font-size: 1em;
+}
+
+:local .primary:hover {
+  background: rgba(palette.$primary-color, 0.9);
+}
+
+:local .primary:active {
+  background: palette.$primary-color;
+}
+
+:local .secondary {
+  border: 1px solid palette.$third-color;
+  color: palette.$primary-font-color;
+  font-size: 1em;
+}

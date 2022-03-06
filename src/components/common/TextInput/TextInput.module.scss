@@ -1,0 +1,20 @@
+@use '/src/palette';
+
+:local .input {
+  height: 25px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: palette.$primary-color;
+  border-radius: 25px;
+  padding: 10px 10px 10px 15px;
+  margin-bottom: 25px;
+}
+
+:local .input:focus {
+  --blur-radius: 10px;
+  --spread-radius: 2px;
+  outline: none;
+  box-shadow: 0 0 var(--blur-radius) var(--spread-radius) rgba(palette.$primary-color, 0.75);
+  -webkit-box-shadow: 0 0 var(--blur-radius) var(--spread-radius) rgba(palette.$primary-color, 0.75);
+  -moz-box-shadow: 0 0 var(--blur-radius) var(--spread-radius) rgba(palette.$primary-color, 0.75);
+}

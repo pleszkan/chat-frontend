@@ -1,0 +1,125 @@
+@use '/src/globals';
+
+:local .chatBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: calc(100% - #{globals.$mobile-device-width} / 2);
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  border-left: 0.5px solid #ececec;
+  background: #fff;
+  overflow-x: hidden;
+
+  .chatRecipientName {
+    position: fixed;
+    height: 3.5em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    background-color: #fff;
+    box-shadow: 0 4px 4px -2px #ececec;
+  }
+
+  .chatMessages {
+    height: calc(100% - 4em);
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+
+    .messageContainer {
+      display: flex;
+      flex-direction: row;
+      margin: 5px 20px 5px 25px;
+
+      .message {
+        min-height: 1.2em;
+        min-width: 50px;
+        max-width: 500px;
+        background-color: #2fe10f;
+        margin: 3px 0 3px 0;
+        padding: 10px 20px 10px 20px;
+        text-align: justify;
+        text-wrap: normal;
+      }
+    }
+
+    .our {
+      justify-content: flex-end;
+    }
+
+    .their {
+      align-items: flex-start;
+    }
+
+    .their .message {
+      background-color: #ececec;
+    }
+
+    .faded {
+      opacity: 0.7;
+    }
+  }
+
+  .chatInputs {
+    height: 3em;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 0 0 0.5em 1em;
+
+    .chatBoxInput {
+      width: calc(94% - 16px);
+      height: 1.8em;
+      padding: 0.1em 0.5em 0.1em 1em;
+
+      background: #ececec;
+      border: 0.5px solid #ececec;
+      border-radius: 24px;
+    }
+
+    .chatBoxInput:focus {
+      outline: none;
+    }
+
+    .chatBoxSubmitButton {
+      width: 5%;
+    }
+  }
+}
+
+:local .chatBoxIsOpen {
+
+  .backButton {
+    display: none;
+  }
+}
+
+@media only screen and (max-device-width: 640px) {
+  :local .chatBox {
+    display: none;
+    width: calc(100% - 1px); // We're missing a pixel somewhere, so I just subtract it until
+                             // I figure where I've missed something...
+  }
+
+  :local .chatBoxIsOpen {
+    display: inline;
+    position: absolute;
+    z-index: 2;
+
+    .backButton {
+      height: 100%;
+      position: absolute;
+      vertical-align: middle;
+      left: 10px;
+      display: inline-block;
+      cursor: pointer;
+      font-size: 2em;
+      line-height: 1.5em;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+@use '/src/palette';
+
+:local .loginBox {
+  min-width: 200px;
+  max-width: 500px;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0 20px 0 20px;
+
+  h1 {
+    color: palette.$primary-color;
+    font-size: 4em;
+  }
+
+  .rememberGroup {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+
+    .label {
+      color: palette.$secondary-font-color;
+      font-weight: bolder;
+    }
+  }
+
+  .button {
+    margin-bottom: 15px;
+  }
+
+  a {
+    color: palette.$secondary-font-color;
+    text-align: center;
+    text-decoration: none;
+  }
+}
+
+@media only screen {
+  :local .loginBox {
+    width: 100vw;
+  }
+}

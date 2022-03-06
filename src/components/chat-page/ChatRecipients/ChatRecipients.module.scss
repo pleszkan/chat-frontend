@@ -1,0 +1,26 @@
+@use '/src/globals';
+
+:local .chatRecipients {
+  width: calc(#{globals.$mobile-device-width} / 2);
+  overflow-y: clip;
+
+  padding: 25px 5px 0 5px;
+
+
+  .disable-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}
+
+@media only screen and (max-device-width: globals.$mobile-device-width) {
+  :local .chatRecipients {
+    width: 100%;
+  }
+
+  :local .chatBoxIsOpen {
+    z-index: 1;
+  }
+}

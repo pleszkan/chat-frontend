@@ -1,0 +1,64 @@
+:local .modalContainer {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  z-index: 100;
+
+  .modal {
+    position: relative;
+    width: 500px;
+    min-height: 100px;
+
+    background-color: rgba(255, 255, 255, 1);
+
+    z-index: 101;
+
+    .closeModalButton {
+      width: 25px;
+      height: 25px;
+      position: absolute;
+      right: 5px;
+      top: 5px;
+
+      background-color: #ececec;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .closeModalButton:hover {
+      background-color: #bbbbbb;
+    }
+
+    .closeModalButton:active {
+      -webkit-transform: rotateX(-13deg) rotateY(-2deg) rotateZ(0deg);
+      -moz-transform: rotateX(-13deg) rotateY(-2deg) rotateZ(0deg);
+      -ms-transform: rotateX(-13deg) rotateY(-2deg) rotateZ(0deg);
+      -o-transform: rotateX(-13deg) rotateY(-2deg) rotateZ(0deg);
+      transform: rotateX(-13deg) rotateY(-2deg) rotateZ(0deg);
+      background-color: #a8a8a8;
+    }
+
+    .closeModalButton:before, .closeModalButton:after {
+      position: absolute;
+      content: ' ';
+      top: 3.75px;
+      left: 12px;
+      height: 17.5px;
+      width: 2px;
+      background-color: #727272;
+    }
+
+    .closeModalButton:before {
+      transform: rotate(45deg);
+    }
+
+    .closeModalButton:after {
+      transform: rotate(-45deg);
+    }
+  }
+}
