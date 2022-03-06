@@ -2,10 +2,9 @@
 
 :local .chatRecipients {
   width: calc(#{globals.$mobile-device-width} / 2);
-  overflow-y: clip;
+  overflow-y: scroll;
 
   padding: 25px 5px 0 5px;
-
 
   .disable-select {
     -webkit-user-select: none;
@@ -15,12 +14,20 @@
   }
 }
 
+:local .chatBoxIsOpen {/* for linting */}
+
 @media only screen and (max-device-width: globals.$mobile-device-width) {
   :local .chatRecipients {
     width: 100%;
   }
 
   :local .chatBoxIsOpen {
+    display: none;
     z-index: 1;
+    transition: 0.3s;
+  }
+
+  :local .chatBoxIsOpen:after {
+    display: none;
   }
 }

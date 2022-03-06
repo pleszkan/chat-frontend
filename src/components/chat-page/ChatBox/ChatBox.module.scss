@@ -7,9 +7,14 @@
   width: calc(100% - #{globals.$mobile-device-width} / 2);
   padding: 0;
   margin: 0;
-  height: 100%;
+  height: calc(100 * var(--vh));
   border-left: 0.5px solid #ececec;
   background: #fff;
+  transition: 0s;
+
+  .backButton {
+    display: none;
+  }
 
   .chatRecipientName {
     position: relative;
@@ -93,21 +98,21 @@
 
 :local .chatBoxIsOpen {
 
-  .backButton {
-    display: none;
-  }
 }
 
 @media only screen and (max-device-width: 640px) {
   :local .chatBox {
-    display: none;
+    position: absolute;
+    left: 100vw;
     width: calc(100% - 1px); // We're missing a pixel somewhere, so I just subtract it until
-                             // I figure where I've missed something...
+    // I figure where I've missed something...
+    transition: 0.2s;
   }
 
   :local .chatBoxIsOpen {
-    display: inline;
     position: absolute;
+    display: inline;
+    left: 0;
     z-index: 2;
 
     .backButton {

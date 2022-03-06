@@ -1,6 +1,14 @@
-:local .chatPageLayout {
-  height: 100vh;
-  width: 100vw;
+@use '/src/globals';
 
+:local .chatPageLayout {
+  position: relative;
   display: flex;
+  height: calc(100 * var(--vh));
+  max-width: 100vw;
+}
+
+@media only screen and (max-device-width: globals.$mobile-device-width) {
+  :local .chatPageLayout {
+    overflow-x: hidden;
+  }
 }

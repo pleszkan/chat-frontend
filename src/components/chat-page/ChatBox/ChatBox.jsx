@@ -3,12 +3,12 @@ import React from "react";
 import styles from './ChatBox.module.scss'
 import classNames from "classnames";
 
-export default function ChatBox() {
+export default function ChatBox({chatIsOpen, setChatIsOpen}) {
 
     return (
-        <div className={classNames(styles.chatBox, styles.chatBoxIsOpen)}>
+        <div className={classNames(styles.chatBox, chatIsOpen ? styles.chatBoxIsOpen : null)}>
             <div className={styles.chatRecipientName}>
-                <div className={styles.backButton}>&#8592;</div>
+                <div className={styles.backButton} onClick={() => setChatIsOpen(false)}>&#8592;</div>
                 Chat Recipient Name
             </div>
             <div className={styles.chatMessages}>
